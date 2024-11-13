@@ -15,6 +15,7 @@ import saudeconectada.fatec.domain.model.Verifiable;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 @RestController
@@ -52,26 +53,16 @@ public class VerifyController {
     }
 
     private ResponseEntity<String> createSuccessRedirect(String message) {
-        try {
-            String encodedMessage = URLEncoder.encode(message, "UTF-8");
-            return ResponseEntity.status(HttpStatus.FOUND)
-                    .location(URI.create("/verification-result.html?message=" + encodedMessage))
-                    .build();
-        } catch (UnsupportedEncodingException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Erro interno ao processar a mensagem.");
-        }
+        String encodedMessage = URLEncoder.encode(message, StandardCharsets.UTF_8);
+        return ResponseEntity.status(HttpStatus.FOUND)
+                .location(URI.create("/verification-result.html?message=" + encodedMessage))
+                .build();
     }
 
     private ResponseEntity<String> createErrorRedirect(String errorMessage) {
-        try {
-            String encodedMessage = URLEncoder.encode(errorMessage, "UTF-8");
-            return ResponseEntity.status(HttpStatus.FOUND)
-                    .location(URI.create("/verification-result.html?message=" + encodedMessage))
-                    .build();
-        } catch (UnsupportedEncodingException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Erro interno ao processar a mensagem.");
-        }
+        String encodedMessage = URLEncoder.encode(errorMessage, StandardCharsets.UTF_8);
+        return ResponseEntity.status(HttpStatus.FOUND)
+                .location(URI.create("/verification-result.html?message=" + encodedMessage))
+                .build();
     }
 }

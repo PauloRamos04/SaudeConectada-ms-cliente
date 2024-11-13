@@ -27,16 +27,6 @@ public class HealthProfessional implements Verifiable {
     private String email;
     private String phone;
     private String address;
-    private Gender gender;
-    private Date birthDate;
-    private Deficiency deficiency;
-    private String photo;
-    private ProfessionalType professionalType;
-    @Setter
-    private UUID verificationToken;
-    @Setter
-    private boolean verified = false;
-    private String healthUnitNumber;
 
     @Override
     public String getEmail() {
@@ -52,5 +42,132 @@ public class HealthProfessional implements Verifiable {
     public boolean isVerified() {
         return verified;
     }
+
+    private Gender gender;
+    private Date birthDate;
+    private UUID verificationToken;
+    private boolean verified = false;
+    private String healthUnitNumber;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public Deficiency getDeficiency() {
+        return deficiency;
+    }
+
+    public void setDeficiency(Deficiency deficiency) {
+        this.deficiency = deficiency;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public ProfessionalType getProfessionalType() {
+        return professionalType;
+    }
+
+    public void setProfessionalType(ProfessionalType professionalType) {
+        this.professionalType = professionalType;
+    }
+
+    public String getHealthUnitNumber() {
+        return healthUnitNumber;
+    }
+
+    public void setHealthUnitNumber(String healthUnitNumber) {
+        this.healthUnitNumber = healthUnitNumber;
+    }
+
+    private Deficiency deficiency;
+    private String photo;
+    private ProfessionalType professionalType;
+
+    public void setVerificationToken(UUID verificationToken) {
+        this.verificationToken = verificationToken;
+    }
+
+    public void setVerified(boolean verified) {
+        this.verified = verified;
+    }
+
 
 }

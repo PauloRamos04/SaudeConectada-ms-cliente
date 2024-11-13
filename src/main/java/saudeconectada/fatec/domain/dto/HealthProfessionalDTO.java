@@ -8,13 +8,14 @@ import lombok.Getter;
 import lombok.Setter;
 import saudeconectada.fatec.domain.enums.Gender;
 import saudeconectada.fatec.domain.enums.ProfessionalType;
+import saudeconectada.fatec.domain.model.HealthProfessional;
 
 import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
 @Setter
-public class HealthProfessionalDTO {
+public class HealthProfessionalDTO extends HealthProfessional {
 
     @NotBlank(message = "O primeiro nome não deve ser nulo")
     @Size(min = 3, max = 50)

@@ -6,12 +6,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 public class CustomUserDetails implements UserDetails {
-    private String username; // CPF
-    private String firstName; // Nome
-    private String password;
-    private Collection<? extends GrantedAuthority> authorities;
+    private final String username;
+    private final String firstName;
+    private final String password;
+    private final Collection<? extends GrantedAuthority> authorities;
 
-    // Construtor
     public CustomUserDetails(String username, String firstName, String password, Collection<? extends GrantedAuthority> authorities) {
         this.username = username;
         this.firstName = firstName;
@@ -35,26 +34,27 @@ public class CustomUserDetails implements UserDetails {
     }
 
     public String getFirstName() {
-        return firstName; // Retorna o firstName
+        return firstName;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return true; // Lógica para a conta não expirada
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true; // Lógica para a conta não bloqueada
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true; // Lógica para credenciais não expiradas
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return true; // Lógica para a conta habilitada
+        return true;
     }
+
 }

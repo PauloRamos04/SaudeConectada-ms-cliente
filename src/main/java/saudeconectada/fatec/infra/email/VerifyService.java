@@ -31,18 +31,16 @@ public class VerifyService {
             throw new IllegalArgumentException("Tipo de usuário desconhecido.");
         }
 
-        if (!userOptional.isPresent()) {
+        if (userOptional.isEmpty()) {
             throw new IllegalArgumentException("Token inválido.");
         }
 
         Verifiable user = userOptional.get();
-        if (user instanceof Patient) {
-            Patient patient = (Patient) user;
+        if (user instanceof Patient patient) {
             patient.setVerificationToken(null);
             patient.setVerified(true);
             patientRepository.save(patient);
-        } else if (user instanceof HealthProfessional) {
-            HealthProfessional healthProfessional = (HealthProfessional) user;
+        } else if (user instanceof HealthProfessional healthProfessional) {
             healthProfessional.setVerificationToken(null);
             healthProfessional.setVerified(true);
             healthProfessionalRepository.save(healthProfessional);
