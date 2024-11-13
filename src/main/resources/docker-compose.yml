@@ -1,17 +1,17 @@
 version: '3.8'
 
 services:
-  postgres:
+  postgres-cliente:
     image: postgres:latest
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: saude-conectada
+      POSTGRES_DB: ms-cliente-db
     ports:
       - "5435:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_cliente_data:/var/lib/postgresql/data
 
 volumes:
-  postgres_data:
+  postgres_cliente_data:
